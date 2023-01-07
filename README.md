@@ -46,3 +46,4 @@ Pass the directory that assigned in the training command
 ```
 bash test.sh work_dirs/faster_rcnn
 ```
+### test
