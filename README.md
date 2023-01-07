@@ -30,4 +30,19 @@ chmod +x detection/mmdetection/tools/dist_train.sh
 ```
 pip install tensorboardx
 ```
-8. Uncommet the TensorboardLoggerHook line in configs/_base_/default_runtime.py
+8. Uncomment the TensorboardLoggerHook line in configs/_base_/default_runtime.py
+## Quick run
+### Train detector
+Example of training faster R-CNN with 8 GPUs. Customize the data, config, models in the config file
+```
+CUDA_VISIBLE_DEVICES=1,2,3 ./tools/dist_train.sh ./configs_pneumothorax/faster_rcnn.py 3 \
+    --work-dir work_dirs/faster_rcnn \
+    --auto-scale-lr \
+    --seed 42 \
+    --deterministic
+```
+### Evaluate 
+Pass the directory that assigned in the training command
+```
+bash test.sh work_dirs/faster_rcnn
+```
