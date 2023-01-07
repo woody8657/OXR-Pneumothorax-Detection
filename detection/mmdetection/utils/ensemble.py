@@ -93,20 +93,6 @@ if __name__ == '__main__':
     parser.add_argument('--output-name', default='output.json', help='output file name')
     opt = parser.parse_args()
 
-    
-    method = 'wbf'
-    iou_thr = 0.60445
-    skip_box_thr = 0.0001
-    sigma = 0.1
-    weights = [
-        0.72412,
-        0.20912,
-        0.20482,
-        0.41983,
-        0.33407
-    ]
-    param = {'iou_thr' : iou_thr, 'skip_box_thr' : skip_box_thr, 'sigma': sigma, 'weights': weights}
-    
     output_ensemble = ensemble(opt.gt, opt.predictions, opt.method, opt.param)
     
     with open(opt.output_name, mode='w') as file:
