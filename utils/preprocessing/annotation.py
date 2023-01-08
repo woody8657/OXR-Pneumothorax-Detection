@@ -32,7 +32,7 @@ class Annotation():
         return img
     
 
-    def grid_bbox2mask(json_path):
+    def grid_bbox2mask(self, json_path):
         tmp = json.load(open(json_path))
         mask = np.zeros((tmp['size'][1], tmp['size'][0]))
         bbox_list = []
@@ -45,7 +45,7 @@ class Annotation():
         
         return mask, bbox_list
 
-    def mask2bbox(mask):
+    def mask2bbox(self, mask):
         mask[mask<125]=0
         mask[mask>=125]=1
         tmp_mask = np.zeros((2500, 2048, 3))
