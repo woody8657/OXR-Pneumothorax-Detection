@@ -22,14 +22,12 @@ class Preprocessor:
 
     def mycanny(self, img):
         # 1.Noise reduction
-        print('Denoising...')
         F = np.array([[2, 4, 5, 4, 2], [4, 9, 12, 9, 4], [5, 12, 15, 12, 5], [4, 9, 12, 9, 4], [2, 4, 5, 4, 2]]) / 159
         output_denoise = convolution(img, F, boundary='symm', mode='same')
         
         # 2.Gradient map and orientation 
         K = 2 # Sobel mask
         # Row gradient
-        print('Sobel...')
         k_r = np.array([[-1, 0, 1], [-K, 0, K], [-1, 0, 1]])/(K+2)
         row_gdmap = convolution(output_denoise, k_r, boundary='symm', mode='same')
         k_c = np.array([[1, K, 1], [0, 0, 0], [-1, -K, -1]])/(K+2)
@@ -37,7 +35,6 @@ class Preprocessor:
         output_edge = np.sqrt(np.square(row_gdmap)+np.square(col_gdmap))
 
         # 3.NMS
-        print('NMS...')
         output_NMS = copy.deepcopy(output_edge)
         theta = np.arctan(col_gdmap/row_gdmap)
         for i in range(1,output_edge.shape[0]-1):
@@ -50,10 +47,8 @@ class Preprocessor:
                         output_NMS[i,j] = 0
 
         # 4.Thresholding
-        print('thresholding...')
         output_thresholding = self._double_thresholding(output_NMS, np.percentile(output_NMS.ravel(), 95), np.percentile(output_NMS.ravel(), 90))
         # 5.Connected
-        print('labeling...')
         output_connected = self._connected(output_thresholding)
         
         return output_connected
