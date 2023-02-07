@@ -24,9 +24,9 @@ if __name__ == '__main__':
     opt = parser.parse_args()
 
     os.makedirs(opt.save_dir, exist_ok=True)
-
-    with open(opt.ref_json, 'r') as f:
-        ref_dict = json.load(f)
+    if opt.ref_json:
+        with open(opt.ref_json, 'r') as f:
+            ref_dict = json.load(f)
     with open(opt.bbox_json, 'r') as f:
         annotations = json.load(f)
 
