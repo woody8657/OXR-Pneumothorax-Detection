@@ -4,7 +4,6 @@ _base_ = [
 ]
 
 # model settings, change num_classes to fit our task
-
 model = dict(
     roi_head=dict(
         bbox_head=[

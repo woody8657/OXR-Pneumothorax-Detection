@@ -32,13 +32,12 @@ class Annotation():
         return img
     
 
-    def grid_bbox2mask(self, json_path):
-        tmp = json.load(open(json_path))
-        mask = np.zeros((tmp['size'][1], tmp['size'][0]))
+    def grid_bbox2mask(self):
+        mask = np.zeros((self.json['size'][1], self.json['size'][0]))
         bbox_list = []
-        for j in range(len(tmp['shapes'])):
-            x_a, y_a = tmp['shapes'][j]['a']
-            x_b, y_b = tmp['shapes'][j]['b']
+        for j in range(len(self.json['shapes'])):
+            x_a, y_a = self.json['shapes'][j]['a']
+            x_b, y_b = self.json['shapes'][j]['b']
             x, y, w, h = int(min(x_a, x_b)), int(min(y_a, y_b)), int(max(x_a, x_b)-min(x_a, x_b)), int(max(y_a, y_b)-min(y_a, y_b))        
             mask[y:y+h,x:x+w] = 255
             bbox_list.append([x,y,w,h])
