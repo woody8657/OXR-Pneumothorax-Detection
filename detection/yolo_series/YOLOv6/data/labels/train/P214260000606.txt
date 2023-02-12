@@ -1,0 +1,1 @@
+/home/u/woody8657/projs/OXR-Pneumothorax-Detection/data/labels/P214260000606.txt

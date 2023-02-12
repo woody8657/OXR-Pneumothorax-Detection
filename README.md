@@ -1,4 +1,12 @@
 # OXR-Pneumothorax-Detection
+## Install YOLOv5~v8
+```
+cd ../detection/yolo_series/YOLOv5/
+   ../detection/yolo_series/YOLOv6/
+   ../detection/yolo_series/YOLOv7/
+   ../detection/yolo_series/YOLOv8/
+pip install -r requirements.txt
+```
 ## Install MMDetection
 1. Create a vitual environment
 ```
@@ -32,6 +40,12 @@ pip install tensorboardx
 ```
 8. Uncomment the TensorboardLoggerHook line in configs/_base_/default_runtime.py
 ## Quick run
+### Custom pneumothorax data
+Create a symbolink link from /data2
+```
+mkdir data
+ln -s /data2/smarted/PXR/data/C426_Pneumothorax_preprocessed/image/preprocessed/images ./data/images 
+```
 ### Train detector
 Example of training faster R-CNN with 8 GPUs. Customize the data, config, models in the config file
 ```
@@ -46,4 +60,3 @@ Pass the directory that assigned in the training command
 ```
 bash test.sh work_dirs/faster_rcnn
 ```
-### test
