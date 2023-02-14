@@ -2,7 +2,7 @@
 ## Pipeline of pneumothorax detection
 ![image](https://github.com/woody8657/OXR-Pneumothorax-Detection/blob/dev/figures/pipeline.png)
 ## Install YOLOv5~v8
-1. Create a vitual environment
+1. Create a virtual environment
 ```
 conda create --name pneumothorax_yolo python=3.8 -y
 ```
@@ -10,7 +10,7 @@ conda create --name pneumothorax_yolo python=3.8 -y
 ```
 conda activate pneumothorax_yolo
 ```
-3. Install requitements of YOLOv5~v8, the package version is compatible between v5~v8. Hence, it's fine to install them in single virtual environment.
+3. Install requitements of YOLOv5-v8, the package version is compatible between v58v8. Hence, it's fine to install them in single virtual environment.
 ```
 cd ./detection/yolo_series/YOLOv5/
    ./detection/yolo_series/YOLOv6/
@@ -19,7 +19,7 @@ cd ./detection/yolo_series/YOLOv5/
 pip install -r requirements.txt
 ```
 ## Install MMDetection
-1. Create a vitual environment
+1. Create a virtual environment
 ```
 conda create --name pneumothorax_mmdetection python=3.8 -y
 ```
