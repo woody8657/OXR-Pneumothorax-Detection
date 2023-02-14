@@ -1,6 +1,8 @@
 # OXR-Pneumothorax-Detection
+![image](https://github.com/woody8657/OXR-Pneumothorax-Detection/blob/dev/figures/pipeline.png)
 ## Install YOLOv5~v8
 ```
+conda create --name pneumothorax_yolo python=3.8 -y
 cd ../detection/yolo_series/YOLOv5/
    ../detection/yolo_series/YOLOv6/
    ../detection/yolo_series/YOLOv7/
@@ -10,11 +12,11 @@ pip install -r requirements.txt
 ## Install MMDetection
 1. Create a vitual environment
 ```
-conda create --name pneumothorax_detection python=3.8 -y
+conda create --name pneumothorax_mmdetection python=3.8 -y
 ```
 2. Activate it
 ```
-conda activate pneumothorax_detection
+conda activate pneumothorax_mmdetection
 ```
 3. Install PyTorch following [official instruction](https://pytorch.org/get-started/locally/). It is important to ensure that the version of CUDA on your system is compatible with PyTorch. For example, CUDA 11.3:
 ```

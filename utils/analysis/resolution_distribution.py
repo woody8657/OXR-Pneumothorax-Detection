@@ -16,18 +16,25 @@ if __name__ == "__main__":
     
     height = []
     width = []
+    area = []
     for dcm_path in tqdm(dcm_path_list):
         ds = pydicom.dcmread(dcm_path)
         height.append(ds[0x00280010].value)
         width.append(ds[0x00280011].value)
+        area.append(ds[0x00280010].value*ds[0x00280011].value)
 
     print(f"Image height mean: {np.mean(height)}, std: {np.std(height)}.")
     plt.hist(height)
-    plt.title("Histogram of images' height")
+    # plt.title("Histogram of images' height")
     plt.savefig("height_dist.png")
     print(f"Image width mean: {np.mean(width)}, std: {np.std(width)}.")
     plt.clf()
     plt.hist(width)
-    plt.title("Histogram of images' width")
+    # plt.title("Histogram of images' width")
     plt.savefig("width_dist.png")
+    print(f"Image width mean: {np.mean(area)}, std: {np.std(area)}.")
+    plt.clf()
+    plt.hist(area)
+    # plt.title("Histogram of images' area")
+    plt.savefig("area_dist.png")
 

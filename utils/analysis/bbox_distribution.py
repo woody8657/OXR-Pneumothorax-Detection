@@ -22,7 +22,7 @@ if __name__ == '__main__':
     
     width_height_ratios = []
     canvas_size = 3000
-    canvas = np.ones((canvas_size,canvas_size,3)) * 255
+    canvas = np.zeros((canvas_size,canvas_size,3)) 
     for ann_path in tqdm(ann_path_list):
         annotation = Annotation(ann_path)
         if opt.circumscribe:
@@ -38,4 +38,4 @@ if __name__ == '__main__':
             h = int(h/annotation.shape[0]*canvas_size)
             canvas = cv2.rectangle(canvas, (x,y), (x+w, y+h), (0, 0, 255), 1)
     
-    cv2.imwrite('bbox_dist.png', canvas)
+    cv2.imwrite('bbox_dist_circumscribed.png', canvas)
