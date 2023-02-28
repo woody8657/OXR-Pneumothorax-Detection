@@ -1,0 +1,10 @@
+{
+    "model": "efficientnet_b2", 
+    "loss": "CE", 
+    "optimizer": "Adam", 
+    "scheduler": "stepLR", 
+    "img_size": 1024, 
+    "batch_size": 16, 
+    "epochs": 100, 
+    "lr": 0.0003
+}
