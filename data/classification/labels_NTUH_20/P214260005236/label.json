@@ -1,0 +1,171 @@
+{
+  "accessionNumber" : "T0NO025031",
+  "shapes" : [
+    {
+      "a" : [
+        2380.521739130435,
+        660.70754716981128
+      ],
+      "b" : [
+        2561.1130434782613,
+        857.68867924528297
+      ],
+      "capStyle" : 0,
+      "fillColor" : null,
+      "id" : "AF0BF600-888B-4FF0-97F7-E0D50CE0C67C",
+      "joinStyle" : 0,
+      "strokeColor" : "#00ffff",
+      "strokeWidth" : 2,
+      "tagAnno" : "pneumothorax ",
+      "type" : "Rectangle"
+    },
+    {
+      "a" : [
+        2524.1739130434785,
+        677.12264150943395
+      ],
+      "b" : [
+        3000.2782608695652,
+        980.80188679245282
+      ],
+      "capStyle" : 0,
+      "fillColor" : null,
+      "id" : "8F63CD72-B802-4734-8874-92D8387E43E4",
+      "joinStyle" : 0,
+      "strokeColor" : "#00ffff",
+      "strokeWidth" : 2,
+      "tagAnno" : "pneumothorax ",
+      "type" : "Rectangle"
+    },
+    {
+      "a" : [
+        2922.2956521739134,
+        865.89622641509436
+      ],
+      "b" : [
+        3205.4956521739132,
+        1120.3301886792453
+      ],
+      "capStyle" : 0,
+      "fillColor" : null,
+      "id" : "AC14DC3A-0D63-4786-8378-F64D25A9DE62",
+      "joinStyle" : 0,
+      "strokeColor" : "#00ffff",
+      "strokeWidth" : 2,
+      "tagAnno" : "pneumothorax ",
+      "type" : "Rectangle"
+    },
+    {
+      "a" : [
+        2663.7217391304348,
+        2380.1886792452829
+      ],
+      "b" : [
+        3020.8000000000002,
+        2683.867924528302
+      ],
+      "capStyle" : 0,
+      "fillColor" : null,
+      "id" : "B01879C0-0173-49A1-B2E5-991B077F5044",
+      "joinStyle" : 0,
+      "strokeColor" : "#00ffff",
+      "strokeWidth" : 2,
+      "tagAnno" : "pneumothorax ",
+      "type" : "Rectangle"
+    },
+    {
+      "a" : [
+        2552.9043478260874,
+        2445.8490566037735
+      ],
+      "b" : [
+        2745.8086956521743,
+        2815.1886792452829
+      ],
+      "capStyle" : 0,
+      "fillColor" : null,
+      "id" : "53CA0969-5D4B-4526-9655-379865B34B8C",
+      "joinStyle" : 0,
+      "strokeColor" : "#00ffff",
+      "strokeWidth" : 2,
+      "tagAnno" : "pneumothorax ",
+      "type" : "Rectangle"
+    },
+    {
+      "a" : [
+        2671.9304347826087,
+        2618.2075471698113
+      ],
+      "b" : [
+        2852.521739130435,
+        2839.8113207547167
+      ],
+      "capStyle" : 0,
+      "fillColor" : null,
+      "id" : "3C6F9F8E-9437-4486-8C3B-708682AA4106",
+      "joinStyle" : 0,
+      "strokeColor" : "#00ffff",
+      "strokeWidth" : 2,
+      "tagAnno" : "pneumothorax ",
+      "type" : "Rectangle"
+    },
+    {
+      "a" : [
+        2503.6521739130435,
+        2770.0471698113206
+      ],
+      "b" : [
+        2721.1826086956526,
+        3143.4905660377358
+      ],
+      "capStyle" : 0,
+      "fillColor" : null,
+      "id" : "3034E715-9CC5-4884-9397-A53CC56E53DF",
+      "joinStyle" : 0,
+      "strokeColor" : "#00ffff",
+      "strokeWidth" : 2,
+      "tagAnno" : "pneumothorax ",
+      "type" : "Rectangle"
+    },
+    {
+      "a" : [
+        3242.434782608696,
+        2449.9528301886789
+      ],
+      "b" : [
+        3464.0695652173918,
+        2687.9716981132074
+      ],
+      "capStyle" : 0,
+      "fillColor" : null,
+      "id" : "3E4EFB39-1C18-4A0F-A4FD-01AF72129759",
+      "joinStyle" : 0,
+      "strokeColor" : "#00ffff",
+      "strokeWidth" : 2,
+      "tagAnno" : "pneumothorax ",
+      "type" : "Rectangle"
+    },
+    {
+      "a" : [
+        3361.4608695652178,
+        2556.6509433962265
+      ],
+      "b" : [
+        3689.8086956521743,
+        3073.7264150943397
+      ],
+      "capStyle" : 0,
+      "fillColor" : null,
+      "id" : "E188544C-8F9C-4E9B-A608-FE38DEEC3DFA",
+      "joinStyle" : 0,
+      "strokeColor" : "#00ffff",
+      "strokeWidth" : 2,
+      "tagAnno" : "pneumothorax ",
+      "type" : "Rectangle"
+    }
+  ],
+  "size" : [
+    4248,
+    3480
+  ]
+}
