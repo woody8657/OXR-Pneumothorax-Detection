@@ -14,5 +14,5 @@ done
 
 # localization
 echo Localizatioin performance of pneumothorax:
-python localize.py
-python localize_annotator.py.py 
+python localize_cad.py
+python localize_radiologist.py
