@@ -10,13 +10,14 @@ if __name__ == '__main__':
         for child in ['train', 'val', 'test']:
             try:
                 shutil.rmtree(f'./data/{parent}/{child}')
+                os.makedirs(f'./data/{parent}/{child}')
             except:
                 os.makedirs(f'./data/{parent}/{child}')
     
     yaml_path = './data/PTX.yaml'
     with open(yaml_path, 'r') as f:
         yaml_dict = yaml.load(f, Loader=SafeLoader)
-   
+
     for group in ['train', 'val', 'test']:
         with open(yaml_dict[group], 'r') as f:
             img_path_list = f.readlines()

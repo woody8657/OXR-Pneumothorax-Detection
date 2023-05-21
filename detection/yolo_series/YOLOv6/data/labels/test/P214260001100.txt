@@ -1,1 +1,1 @@
-/home/u/woody8657/projs/OXR-Pneumothorax-Detection/data/labels/P214260001100.txt
+/data2/smarted/PXR/data/C426_Pneumothorax_preprocessed/image/preprocessed/labels/P214260001100.txt

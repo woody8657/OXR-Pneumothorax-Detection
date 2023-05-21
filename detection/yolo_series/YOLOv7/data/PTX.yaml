@@ -1,7 +1,7 @@
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
-train: /home/u/woody8657/projs/OXR-Pneumothorax-Detection/data/yolo_group/train_fold1.txt  # train images (relative to 'path') 128 images
-val: /home/u/woody8657/projs/OXR-Pneumothorax-Detection/data/yolo_group/test_fold1.txt  # val images (relative to 'path') 128 images
-test: /home/u/woody8657/projs/OXR-Pneumothorax-Detection/data/yolo_group/holdout.txt # test images (optional)
+train: ../../../data/yolo_group/train_fold1.txt  # train images (relative to 'path') 128 images
+val: ../../../data/yolo_group/test_fold1.txt  # val images (relative to 'path') 128 images
+test: ../../../data/yolo_group/holdout.txt # test images (optional)
 
 nc: 1
 # Classes
