@@ -1,23 +1,7 @@
 # OXR-Pneumothorax-Detection
-## Pipeline of pneumothorax detection
+## Usage
 ![image](https://github.com/woody8657/OXR-Pneumothorax-Detection/blob/dev/figures/pipeline.png)
-## Install YOLOv5~v8
-1. Create a virtual environment
-```
-conda create --name pneumothorax_yolo python=3.8 -y
-```
-2. Activate it
-```
-conda activate pneumothorax_yolo
-```
-3. Install requitements of YOLOv5-v8, the package version is compatible between v58v8. Hence, it's fine to install them in single virtual environment.
-```
-cd ./detection/yolo_series/YOLOv5/
-   ./detection/yolo_series/YOLOv6/
-   ./detection/yolo_series/YOLOv7/
-   ./detection/yolo_series/YOLOv8/
-pip install -r requirements.txt
-```
+Please refer to the folders in `detection`, which contains our implementations of 1) [classification](https://github.com/woody8657/OXR-Pneumothorax-Detection/tree/dev/detection/classification) ,2)  [MMDetection](https://github.com/woody8657/OXR-Pneumothorax-Detection/tree/dev/detection/mmdetection) and 3) [classification](https://github.com/woody8657/OXR-Pneumothorax-Detection/tree/dev/detection/ensemble), as described in my thesis.
 ## Install MMDetection
 1. Create a virtual environment
 ```
@@ -70,4 +54,22 @@ CUDA_VISIBLE_DEVICES=1,2,3 ./tools/dist_train.sh ./configs_pneumothorax/faster_r
 Pass the directory that assigned in the training command
 ```
 bash test.sh work_dirs/faster_rcnn
+```
+
+## Install YOLOv5~v8
+1. Create a virtual environment
+```
+conda create --name pneumothorax_yolo python=3.8 -y
+```
+2. Activate it
+```
+conda activate pneumothorax_yolo
+```
+3. Install requitements of YOLOv5-v8, the package version is compatible between v58v8. Hence, it's fine to install them in single virtual environment.
+```
+cd ./detection/yolo_series/YOLOv5/
+   ./detection/yolo_series/YOLOv6/
+   ./detection/yolo_series/YOLOv7/
+   ./detection/yolo_series/YOLOv8/
+pip install -r requirements.txt
 ```
