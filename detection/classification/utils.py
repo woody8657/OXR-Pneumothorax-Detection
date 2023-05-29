@@ -9,7 +9,7 @@ import torchvision
 import pandas as pd
 import monai
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score,roc_curve,auc,precision_recall_curve,classification_report, confusion_matrix, plot_confusion_matrix, average_precision_score
+from sklearn.metrics import roc_auc_score,roc_curve,auc,precision_recall_curve,classification_report, confusion_matrix, average_precision_score
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -25,7 +25,7 @@ def set_random_seed(seed = 73):
 
 def get_model(model_name, weight=None):
     if model_name == 'inceptionv3':
-        model = torchvision.models.inception_v3(pretrained=True,aux_logits=False)
+        model = torchvision.models.inception_v3(pretrained=True,aux_logits=True)
         model.dropout = nn.Dropout(0.4)
         num_ftrs = model.fc.in_features
         model.fc = nn.Linear(num_ftrs, 2)
@@ -124,7 +124,7 @@ def get_scheduler(scheduler_name, optimizer, max_epoch):
 
 def split_data():
     csv = pd.read_csv('../../data/classification/NTUH_1519.csv')
-    img_dir = '/home/u/woody8657/data/C426_Pneumothorax_preprocessed/image/preprocessed/images/'
+    img_dir = '../../data/images/'
     label_data = []
     for i in range(csv.shape[0]):
         if csv.iloc[i,3] != 1:
@@ -141,7 +141,7 @@ def split_data():
 
 class Dataset(data.Dataset):
     def __init__(self, data, transform=None):
-        self.img_dir = '/home/u/woody8657/data/C426_Pneumothorax_preprocessed/image/preprocessed/images/'
+        self.img_dir = '../../data/images/'
         self.data = data
         self.transform = transform
         

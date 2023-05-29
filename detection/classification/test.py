@@ -95,11 +95,16 @@ def main(opt):
     test_loss = sum(test_loss) / len(test_loss)
     print(f"Test loss: {test_loss}")
     evaluation = Evaluation(label_all,prob_all)
-    # # threshold = 0.23281845450401306
-    # # threshold = 0.029015876352787018
-    threshold = 0.5
+    threshold = 0.5 # or use youden index of NTUH-1519 0.23281845450401306, 0.029015876352787018
     print(evaluation.eval(threshold))
-    evaluation.plot_confusion_matrix(threshold=threshold)
+    # evaluation.plot_confusion_matrix(threshold=threshold)
+    # pred = thresholding(prob_all, threshold)
+    # pred_negative_pid = []
+    # for i in range(len(pred)):
+    #     if pred[i] == 0:
+    #         pred_negative_pid.append(test_dataset.label_data[i][0])
+    # with open('pred_negative_pid_G301_2cls_list1.json', 'w') as file:
+    #     json.dump(pred_negative_pid, file)
     
 
 
