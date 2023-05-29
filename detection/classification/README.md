@@ -1,12 +1,10 @@
-# OXR-Pneumothorax-Detection
-## Classification stage
+# Pneumothorax Classification
 The training code is integrated with pytorch lightning.
-1. 
+1. Install requirements.
 ```
 pip install -r requirements.txt
 ```
-2. 
-Check the example in the train.sh and test.sh. You can custom the training config via the json files in configs/. The deault configs in configs/ input 1024*1024 image size, festivo is recommended and make sure 2 gpus are available, otherwise the result may be inconsistent.
+2. Check the example in the train.sh and test.sh. You can custom the training config via the json files in configs/. The deault configs in configs/ input 1024*1024 image size, festivo is recommended and make sure 2 gpus are available, otherwise the result may be inconsistent.
 ```
 bash train.sh
 ```
