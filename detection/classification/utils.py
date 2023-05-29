@@ -25,7 +25,7 @@ def set_random_seed(seed = 73):
 
 def get_model(model_name, weight=None):
     if model_name == 'inceptionv3':
-        model = torchvision.models.inception_v3(pretrained=True,aux_logits=True)
+        model = torchvision.models.inception_v3(pretrained=True,aux_logits=False)
         model.dropout = nn.Dropout(0.4)
         num_ftrs = model.fc.in_features
         model.fc = nn.Linear(num_ftrs, 2)

@@ -6,7 +6,7 @@ First of all, [MMDetection](https://github.com/open-mmlab/mmdetection)  follows 
 python make_config.py 
 ```
 The config files will be stored in configs_pneumothorax_10f
-2. Training TOOD, VFNet, and Deformable DETR on 10 folds
+2. Training TOOD, VFNet, and Deformable DETR on 10 folds, make sure 3 gpus are available, otherwise the result may be inconsistent.
 ```
 bash train_10f.sh
 ```
