@@ -195,7 +195,7 @@ if __name__ == '__main__':
     
     checkpoint_callback = ModelCheckpoint(
         monitor='val/AUPRC',
-        filename='pneumothorax-epoch{epoch:02d}-val_AP{val/AP:.2f}',
+        filename='pneumothorax-epoch{epoch:02d}-val_AUPRC{val/AUPRC:.2f}',
         mode='max',
         auto_insert_metric_name=False
     )

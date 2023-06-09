@@ -1,3 +1,21 @@
+# Pneumothorax Detection
+## Install YOLOv5~v8
+1. Create a virtual environment
+```
+conda create --name pneumothorax_yolo python=3.8 -y
+```
+2. Activate it
+```
+conda activate pneumothorax_yolo
+```
+3. Install requitements of YOLOv5-v8, the package version is compatible between v58v8. Hence, it's fine to install them in single virtual environment.
+```
+cd ./detection/yolo_series/YOLOv5/
+   ./detection/yolo_series/YOLOv6/
+   ./detection/yolo_series/YOLOv7/
+   ./detection/yolo_series/YOLOv8/
+pip install -r requirements.txt
+```
 ## Result and models
 ### Preprocessing: Org + CLAHE + CLAHE
 The result is evaluated by testing on fold1 and keep default learning rate scheadule. 

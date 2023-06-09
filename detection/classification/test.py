@@ -61,9 +61,9 @@ def main(opt):
     
     # model
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model1 = load_model_lit2torch('efficientnet_b2', './logs/efficientnet_b2/checkpoints/pneumothorax-epoch83-val_AP0.74.ckpt')
-    model2 = load_model_lit2torch('inceptionv3', './logs/inceptionv3/checkpoints/pneumothorax-epoch75-val_AP0.70.ckpt')
-    model3 = load_model_lit2torch('densenet121', './logs/densenet121/checkpoints/pneumothorax-epoch84-val_AP0.71.ckpt')
+    model1 = load_model_lit2torch('efficientnet_b2', './logs/test_fixed_seed/default/version_1/checkpoints/pneumothorax-epoch22-val_AUPRC0.91.ckpt')
+    model2 = load_model_lit2torch('inceptionv3', './logs/test_fixed_seed/default/version_0/checkpoints/pneumothorax-epoch49-val_AUPRC0.88.ckpt')
+    model3 = load_model_lit2torch('densenet121', './logs/test_fixed_seed/default/version_2/checkpoints/pneumothorax-epoch63-val_AUPRC0.86.ckpt')
     model = myEnsemble(model1, model2, model3).to(device)  
 
     criterion = nn.CrossEntropyLoss()
@@ -115,4 +115,4 @@ if __name__ == "__main__":
     opt = parser.parse_args()
     
     main(opt)
-
+    
