@@ -61,9 +61,22 @@ def main(opt):
     
     # model
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model1 = load_model_lit2torch('efficientnet_b2', './logs/test_fixed_seed/default/version_1/checkpoints/pneumothorax-epoch22-val_AUPRC0.91.ckpt')
-    model2 = load_model_lit2torch('inceptionv3', './logs/test_fixed_seed/default/version_0/checkpoints/pneumothorax-epoch49-val_AUPRC0.88.ckpt')
-    model3 = load_model_lit2torch('densenet121', './logs/test_fixed_seed/default/version_2/checkpoints/pneumothorax-epoch63-val_AUPRC0.86.ckpt')
+
+    # Thesis
+    # model1 = load_model_lit2torch('efficientnet_b2', '/home/u/woody8657/projs/Pneumothorax-detection/2cls/lightning_logs/models_2gpu_shuffle/default/efficientnet_b2/checkpoints/pneumothorax-epoch83-val_AP0.74.ckpt')
+    # model2 = load_model_lit2torch('inceptionv3', '/home/u/woody8657/projs/Pneumothorax-detection/2cls/lightning_logs/models_2gpu_shuffle/default/inceptionv3/checkpoints/pneumothorax-epoch75-val_AP0.70.ckpt')
+    # model3 = load_model_lit2torch('densenet121', '/home/u/woody8657/projs/Pneumothorax-detection/2cls/lightning_logs/models_2gpu_shuffle/default/densenet121/checkpoints/pneumothorax-epoch84-val_AP0.71.ckpt')
+    
+    # Woody
+    # model1 = load_model_lit2torch('efficientnet_b2', './logs/test_fixed_seed/default/version_1/checkpoints/pneumothorax-epoch22-val_AUPRC0.91.ckpt')
+    # model2 = load_model_lit2torch('inceptionv3', './logs/test_fixed_seed/default/version_0/checkpoints/pneumothorax-epoch49-val_AUPRC0.88.ckpt')
+    # model3 = load_model_lit2torch('densenet121', './logs/test_fixed_seed/default/version_2/checkpoints/pneumothorax-epoch63-val_AUPRC0.86.ckpt')
+
+    # Brian
+    model1 = load_model_lit2torch('efficientnet_b2', '/home/u/woody8657/data/C426_Pneumothorax_preprocessed/ckpts/version_4/checkpoints/pneumothorax-epoch11-val_AUPRC0.91.ckpt')
+    model2 = load_model_lit2torch('inceptionv3', '/home/u/woody8657/data/C426_Pneumothorax_preprocessed/ckpts/version_3/checkpoints/pneumothorax-epoch27-val_AUPRC0.86.ckpt')
+    model3 = load_model_lit2torch('densenet121', '/home/u/woody8657/data/C426_Pneumothorax_preprocessed/ckpts/version_5/checkpoints/pneumothorax-epoch83-val_AUPRC0.87.ckpt')
+
     model = myEnsemble(model1, model2, model3).to(device)  
 
     criterion = nn.CrossEntropyLoss()
@@ -94,7 +107,8 @@ def main(opt):
     # The average loss and accuracy for entire validation set is the average of the recorded values.
     test_loss = sum(test_loss) / len(test_loss)
     print(f"Test loss: {test_loss}")
-    evaluation = Evaluation(label_all,prob_all)
+    # evaluation = Evaluation(label_all,prob_all)
+    evaluation = Evaluation(label_all, [0 for _ in range(len(label_all))],)
     threshold = 0.5 # or use youden index of NTUH-1519 0.23281845450401306, 0.029015876352787018
     print(evaluation.eval(threshold))
     # evaluation.plot_confusion_matrix(threshold=threshold)

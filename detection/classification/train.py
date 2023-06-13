@@ -7,6 +7,7 @@ import torchvision.transforms as transforms
 import torch.nn.functional as F
 from sklearn.metrics import roc_curve, auc, confusion_matrix, average_precision_score
 import pytorch_lightning as pl
+from pytorch_lightning import seed_everything
 from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning import loggers as pl_loggers
 
@@ -190,6 +191,7 @@ if __name__ == '__main__':
     with open(opt.config, 'r') as file:
         config = json.load(file)
     print(config)
+    
 
     os.environ["CUDA_VISIBLE_DEVICES"] = opt.gpu
     
@@ -199,14 +201,18 @@ if __name__ == '__main__':
         mode='max',
         auto_insert_metric_name=False
     )
+    
     tb_logger = pl_loggers.TensorBoardLogger(save_dir=f"{opt.savedir}/")
+    seed_everything(73, workers=True)
+    
     trainer = pl.Trainer(
         gpus=len(str(opt.gpu).split(',')),
         max_epochs=config['epochs'],
+        deterministic=True,
         check_val_every_n_epoch=1,
         num_sanity_val_steps=0,
         callbacks=[checkpoint_callback],
         logger=tb_logger
     )
-    set_random_seed()
+    # set_random_seed()
     trainer.fit(LitModel(config))
