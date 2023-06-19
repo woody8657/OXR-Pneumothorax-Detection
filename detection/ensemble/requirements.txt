@@ -1,2 +1,5 @@
 ensemble-boxes==1.0.9
 optuna==3.0.3
+plotly==5.10.0
+kaleido==0.2.1
+scikit-learn==1.0.2

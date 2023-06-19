@@ -11,7 +11,7 @@ def json2dict(path):
         data = json.load(file)
     return data
 
-def ensemble(gt_path, prediction_paths, method, param=None):
+def ensemble(gt_path, prediction_paths, param):
     """
     Implementation of detection ensembling.
     Provided algorithms: NMS, soft-NMS, NMW, WBF
@@ -19,9 +19,9 @@ def ensemble(gt_path, prediction_paths, method, param=None):
     Refence:
     [1] https://github.com/ZFTurbo/Weighted-Boxes-Fusion
     """
-    if not param:
-        param = {'iou_thr' : 0.5, 'skip_box_thr' : 0.0001, 'sigma': 0.1, 'weights': [1/len(prediction_paths)]*len(prediction_paths)}
-    print(param)
+    if "weights" not in param.keys():
+        param["weights"] = [param[f"weights{i}"] for i in range(1,len(prediction_paths)+1)]
+
     gt = json2dict(gt_path)
 
     model_output_list = []
@@ -64,16 +64,16 @@ def ensemble(gt_path, prediction_paths, method, param=None):
         boxes_list = [boxes for boxes in boxes_list if boxes != []]
         scores_list = [scores for scores in scores_list if scores != []]
         labels_list = [labels for labels in labels_list if labels != []]
-        if method == 'nms':
+        if param['method'] == 'nms':
             boxes, scores, labels = nms(boxes_list, scores_list, labels_list, weights=param['weights'], iou_thr=param['iou_thr'])
-        elif method == 'soft_nms':
+        elif param['method'] == 'soft_nms':
             boxes, scores, labels = soft_nms(boxes_list, scores_list, labels_list, weights=param['weights'], iou_thr=param['iou_thr'])
-        elif method == 'nmw':
+        elif param['method'] == 'nmw':
             boxes, scores, labels = non_maximum_weighted(boxes_list, scores_list, labels_list, weights=param['weights'], iou_thr=param['iou_thr'])
-        elif method == 'wbf':
+        elif param['method'] == 'wbf':
             boxes, scores, labels = weighted_boxes_fusion(boxes_list, scores_list, labels_list, weights=param['weights'], iou_thr=param['iou_thr'])
         else:
-            raise NameError(f'the algorithm name {method} is not supported')
+            raise NameError(f'the algorithm name {param["method"]} is not supported')
         
         
         for xyxy_norm, score, label in zip(boxes, scores, labels):
@@ -91,9 +91,14 @@ if __name__ == '__main__':
     parser.add_argument('--predictions', nargs='+', type=str, help='jsons of predicitons, could be multiple.')
     parser.add_argument('--method', default='wbf', help='ensemble algorithm to fuse bboxs')
     parser.add_argument('--output-name', default='output.json', help='output file name')
-    opt = parser.parse_args()
+    opt = parser.parse_args()   
 
-    output_ensemble = ensemble(opt.gt, opt.predictions, opt.method, opt.param)
+
+
+    param = {'method': 'wbf', 'iou_thr' : 0.5, 'skip_box_thr' : 0.0001, 'sigma': 0.1, 'weights': [1/len(opt.gt)]*len(opt.predictions)}
+    print(param)
+    # output_ensemble = ensemble(opt.gt, opt.predictions, opt.method, opt.param)
+    output_ensemble = ensemble(opt.gt, opt.predictions, param)
     
     with open(opt.output_name, mode='w') as file:
         json.dump(output_ensemble, file)
