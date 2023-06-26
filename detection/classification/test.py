@@ -44,6 +44,15 @@ class myEnsemble(nn.Module):
         out = sum(out) / len(out)
         
         return out
+def thresholding(prob, threshold):
+    output = [0] * len(prob)
+    for i in range(len(prob)):
+        if prob[i] > threshold:
+            output[i] = 1
+        else:
+            output[i] = 0
+    return output
+
 
 def main(opt):
 
@@ -108,17 +117,17 @@ def main(opt):
     test_loss = sum(test_loss) / len(test_loss)
     print(f"Test loss: {test_loss}")
     # evaluation = Evaluation(label_all,prob_all)
-    evaluation = Evaluation(label_all, [0 for _ in range(len(label_all))],)
-    threshold = 0.5 # or use youden index of NTUH-1519 0.23281845450401306, 0.029015876352787018
+    evaluation = Evaluation(label_all, prob_all)
+    threshold =   0.5 # or use youden index of NTUH-1519 0.23281845450401306, 0.029015876352787018
     print(evaluation.eval(threshold))
     # evaluation.plot_confusion_matrix(threshold=threshold)
-    # pred = thresholding(prob_all, threshold)
-    # pred_negative_pid = []
-    # for i in range(len(pred)):
-    #     if pred[i] == 0:
-    #         pred_negative_pid.append(test_dataset.label_data[i][0])
-    # with open('pred_negative_pid_G301_2cls_list1.json', 'w') as file:
-    #     json.dump(pred_negative_pid, file)
+    pred = thresholding(prob_all, threshold)
+    pred_negative_pid = []
+    for i in range(len(pred)):
+        if pred[i] == 0:
+            pred_negative_pid.append(test_dataset.label_data[i][0])
+    with open('../../reproduce/det-based-cad_retrain/prediction/2cls_neg_list.json', 'w') as file:
+        json.dump(pred_negative_pid, file)
     
 
 

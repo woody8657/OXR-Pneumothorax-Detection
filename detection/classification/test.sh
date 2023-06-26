@@ -1,5 +1,5 @@
 
-CUDA_VISIBLE_DEVICES=5 python test.py \
+CUDA_VISIBLE_DEVICES=0 python test.py \
     --img 1024  \
-    --batch 16
+    --batch 1
      

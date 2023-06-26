@@ -51,14 +51,14 @@ if __name__ == '__main__':
     # }
     # study.enqueue_trial(best_80k)
     # study.optimize(wrap,  n_jobs=15, callbacks=[MaxTrialsCallback(90, states=(TrialState.COMPLETE,))])
-    study.optimize(wrap, n_trials=2)
+    study.optimize(wrap, n_trials=100)
 
     print('Number of finished trials:', len(study.trials))
     print('Best trial parameters:', study.best_trial.params)
     print('Best score:', study.best_value)
 
   
-    save_log_dir = "log"
+    save_log_dir = "log/brian_result"
     os.makedirs(save_log_dir, exist_ok=True)
     log_info = study.best_trial.params
     log_info['best_value'] = study.best_value

@@ -30,3 +30,14 @@ python ensemble_ray_optuna.py \
     --jsons ../mmdetection/deformable_detr_f3.bbox.json ../mmdetection/tood_f8.bbox.json ../mmdetection/vfnet_f2_p.bbox.json \
     --output-name output_optuna.json
 ```
+## Reproduce
+Inference
+```
+cd ../mmdetection/ 
+bash inf_holdout.sh 
+```
+Search hyper parameter
+```
+cd ../ensemble/
+bash ensemble_optuna.sh 
+```
